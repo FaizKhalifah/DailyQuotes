@@ -4,11 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Quotes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
+<form method="get" asp-action="Index">
+    <label>Enter quote text</label><br />
+    <input type="text" name="search" value="@Context.Request.Query["search"]" placeholder="Search quotes..." />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -31,9 +36,9 @@
                 @Html.DisplayFor(modelItem => item.quoteText)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-secondary">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
