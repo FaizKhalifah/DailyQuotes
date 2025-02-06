@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DailyQuotes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+caf901472b048a1b36c5e274ccf1a59579c49333")]
 [assembly: System.Reflection.AssemblyProductAttribute("DailyQuotes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DailyQuotes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

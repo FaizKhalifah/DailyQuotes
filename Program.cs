@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using DailyQuotes.Data;
 namespace DailyQuotes
 {
     public class Program
@@ -5,6 +8,8 @@ namespace DailyQuotes
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<DailyQuotesContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DailyQuotesContext") ?? throw new InvalidOperationException("Connection string 'DailyQuotesContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
