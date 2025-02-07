@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DailyQuotes.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DailyQuotes.Data
 {
-    public class DailyQuotesContext : DbContext
+    public class DailyQuotesContext : IdentityDbContext<User>
     {
         public DailyQuotesContext (DbContextOptions<DailyQuotesContext> options)
             : base(options)

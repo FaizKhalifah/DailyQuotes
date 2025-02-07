@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using DailyQuotes.Data;
+using DailyQuotes.Models;
+using Microsoft.AspNetCore.Identity;
 namespace DailyQuotes
 {
     public class Program
@@ -8,8 +10,16 @@ namespace DailyQuotes
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            // Konfigurasi Database dan Identity
             builder.Services.AddDbContext<DailyQuotesContext>(options =>
-                options.UseNpgsql(builder.Configuration.GetConnectionString("DailyQuotesContext") ?? throw new InvalidOperationException("Connection string 'DailyQuotesContext' not found.")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DailyQuotesContext")
+                    ?? throw new InvalidOperationException("Connection string 'DailyQuotesContext' not found.")));
+
+            // Tambahkan Identity
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+            .AddEntityFrameworkStores<DailyQuotesContext>();
+            builder.Services.AddRazorPages(); // Tambahkan ini untuk UI Identity
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -29,7 +39,11 @@ namespace DailyQuotes
 
             app.UseRouting();
 
+          
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapRazorPages();
 
             app.MapControllerRoute(
                 name: "default",
