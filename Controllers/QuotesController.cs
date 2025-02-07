@@ -20,9 +20,17 @@ namespace DailyQuotes.Controllers
         }
 
         // GET: Quotes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
-            return View(await _context.Quote.ToListAsync());
+            var quotes = from q in _context.Quote select q;
+           
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                quotes = quotes.Where(q => q.quoteText.Contains(search));
+            }
+
+            return View(await quotes.AsNoTracking().ToListAsync());
         }
 
         // GET: Quotes/Details/5
