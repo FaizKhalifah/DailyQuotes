@@ -269,6 +269,6 @@ D:\Projekan\Personal\DailyQuotes\obj\Debug\net8.0\DailyQuotes.pdb
 D:\Projekan\Personal\DailyQuotes\bin\Debug\net8.0\DailyQuotes.deps.json
 D:\Projekan\Personal\DailyQuotes\bin\Debug\net8.0\DailyQuotes.runtimeconfig.json
 D:\Projekan\Personal\DailyQuotes\bin\Debug\net8.0\DailyQuotes.pdb
-D:\Projekan\Personal\DailyQuotes\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Projekan\Personal\DailyQuotes\obj\Debug\net8.0\DailyQuotes.genruntimeconfig.cache
 D:\Projekan\Personal\DailyQuotes\obj\Debug\net8.0\ref\DailyQuotes.dll
+D:\Projekan\Personal\DailyQuotes\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
